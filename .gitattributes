@@ -1,0 +1,17 @@
+* text=auto
+
+# GitHub Linguist — surface the real application languages
+*.py    text linguist-detectable=true linguist-language=Python
+*.html  text linguist-detectable=true linguist-language=HTML
+*.css   text linguist-detectable=true linguist-language=CSS
+*.js    text linguist-detectable=true linguist-language=JavaScript
+*.yml   text linguist-detectable=true linguist-language=YAML
+*.yaml  text linguist-detectable=true linguist-language=YAML
+
+# Keep generated / third-party trees out of the language bar
+venv/**            linguist-vendored
+.venv/**           linguist-vendored
+**/__pycache__/**  linguist-generated
+*.sqlite3          linguist-generated
+*.min.js           linguist-vendored
+*.min.css          linguist-vendored
