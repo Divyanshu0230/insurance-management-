@@ -1,12 +1,12 @@
 * text=auto eol=lf
 
-# Count application source as Python (the language GitHub should show)
-*.py linguist-language=Python linguist-detectable
+# Application source — this is what the GitHub language bar should show
+*.py linguist-language=Python linguist-detectable=true
 
-# Django HTML templates are presentation, not the primary language.
-# Leaving them in stats makes GitHub label the repo as HTML and can hide a useful language bar.
+# Django templates are UI markup. Unset-style (-linguist-detectable) returns to
+# Linguist's default, which still counts HTML. Explicit false is required.
+*.html linguist-detectable=false
 templates/** linguist-documentation
-*.html -linguist-detectable
 
 # Keep third-party / generated trees out of stats
 venv/** linguist-vendored
