@@ -1,17 +1,16 @@
-* text=auto
+* text=auto eol=lf
 
-# GitHub Linguist — surface the real application languages
-*.py    text linguist-detectable=true linguist-language=Python
-*.html  text linguist-detectable=true linguist-language=HTML
-*.css   text linguist-detectable=true linguist-language=CSS
-*.js    text linguist-detectable=true linguist-language=JavaScript
-*.yml   text linguist-detectable=true linguist-language=YAML
-*.yaml  text linguist-detectable=true linguist-language=YAML
+# Count application source as Python (the language GitHub should show)
+*.py linguist-language=Python linguist-detectable
 
-# Keep generated / third-party trees out of the language bar
-venv/**            linguist-vendored
-.venv/**           linguist-vendored
-**/__pycache__/**  linguist-generated
-*.sqlite3          linguist-generated
-*.min.js           linguist-vendored
-*.min.css          linguist-vendored
+# Django HTML templates are presentation, not the primary language.
+# Leaving them in stats makes GitHub label the repo as HTML and can hide a useful language bar.
+templates/** linguist-documentation
+*.html -linguist-detectable
+
+# Keep third-party / generated trees out of stats
+venv/** linguist-vendored
+.venv/** linguist-vendored
+static/** linguist-vendored
+**/__pycache__/** linguist-generated
+*.sqlite3 linguist-generated
